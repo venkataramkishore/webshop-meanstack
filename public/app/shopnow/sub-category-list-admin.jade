@@ -1,0 +1,39 @@
+.container-fluid
+	.row
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
+			form.form-inline.pull-right
+				.form-group
+					input.form-control(ng-model="subcatFilter", placeholder="Filter")
+	.row
+		.col-md-12
+			&nbsp;
+	table.table.table-condensed.table-striped.table-bordered.table-hover
+		thead
+			tr
+				td
+					a.btn.btn-info.btn-sm(href="#", ng-click="switchTo('5')") 
+						.fa.fa-plus
+				td
+					label Id
+				td
+					label Title
+				td
+					label Category
+				td
+					label Description
+		tbody(ng-repeat="subcat in adminSubCategories | filter:subcatFilter | orderBy:subcatOrder")
+			tr
+				td
+					a.btn.btn-warning.btn-sm(href="#", ng-click="updateSubCat(subcat)" ) 
+						.fa.fa-pencil
+					&nbsp;
+					a.btn.btn-danger.btn-sm(href="#", ng-click="deleteSubCat(subcat)" ) 
+						.fa.fa-trash
+				td
+					{{subcat._id}} 
+				td
+					{{subcat.title}}
+				td
+					{{subcat.category_title}}
+				td
+					{{subcat.description}}

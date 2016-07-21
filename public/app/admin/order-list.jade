@@ -1,0 +1,79 @@
+.container-fluid
+	.row
+		.col-xs-6.col-sm-6.col-md-6.col-lg-6
+			form.form-inline.pull-left
+				.form-group
+						.fa.fa-th-list  Orders List  &nbsp;
+		.col-xs-6.col-sm-6.col-md-6.col-lg-6
+			form.form-inline.pull-right
+				.form-group
+					a.btn.btn-info(href="#", ng-click="ordFilter='InProgress'")
+						.fa.fa-dashboard  In Progress
+					&nbsp;
+					a.btn.btn-success(href="#", ng-click="ordFilter='Delivered'") 
+						.fa.fa-gift  Delivered
+					&nbsp;
+					a.btn.btn-danger(href="#", ng-click="ordFilter='Cancelled'") 
+						.fa.fa-gift  Cancelled
+				.form-group
+					input.form-control(ng-model="ordFilter", placeholder="Filter")		
+	.row
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
+			&nbsp;
+	.row
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
+		table.table.table-condensed.table-striped.table-bordered.table-hover
+			thead
+				tr
+					td
+						&nbsp;
+					td
+						label Ref #
+					td
+						label Login Id
+					td
+						label Name
+					td
+						label Product Title
+					td
+						label Price
+					td
+						label Quantity
+					td
+						label Category
+					td
+						label Sub Category
+					td
+						label Status
+					td
+						label Modified By
+			tbody(ng-repeat="ord in orders | filter:ordFilter")
+				tr
+					td
+						a.btn.btn-danger.btn-sm(href="#", ng-click="cancelOrder(ord)",ng-show="ord.status=='InProgress'" ) 
+							.fa.fa-trash
+					td
+						{{ord._id}} 
+					td
+						{{ord.userName}}
+					td
+						{{ord.firstName+","+ord.lastName}}
+					td
+						{{ord.prod_title}}
+					td
+						{{ord.totalPrice}}
+					td
+						{{ord.quantity}}
+					td
+						{{ord.category}}
+					td
+						{{ord.subCategory}}
+					td
+						{{ord.status}}
+					td
+						{{ord.modifiedBy}}
+			tfoot
+				tr
+					td(colspan="11")
+						div.col-md-offset-5.col-md-1.col-md-offset-5
+							a.btn.btn-primary.center-block(href="/shopnow") Done

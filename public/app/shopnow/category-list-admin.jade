@@ -1,0 +1,37 @@
+.container-fluid
+	.row
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
+			form.form-inline.pull-right
+				.form-group
+					input.form-control(ng-model="catFilter", placeholder="Filter")
+	.row
+		.col-md-12.col-xs-12.col-sm-12.col-lg-12
+			&nbsp;
+	.row
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
+			table.table.table-condensed.table-striped.table-bordered.table-hover
+				thead
+					tr
+						td
+							.btn.btn-info.btn-sm(href="#", ng-click="switchTo('4')") 
+								.fa.fa-plus 
+						td
+							label Id
+						td
+							label Title
+						td
+							label Description
+				tbody(ng-repeat="cat in adminCategories | filter:catFilter | orderBy:catOrder")
+					tr
+						td
+							a.btn.btn-warning.btn-sm(href="#", ng-click="updateCat(cat)" ) 
+								i.fa.fa-pencil
+							&nbsp;
+							a.btn.btn-danger.btn-sm(href="#", ng-click="deleteCat(cat)" ) 
+								i.fa.fa-trash
+						td
+							{{cat._id}}
+						td
+							{{cat.title}}
+						td
+							{{cat.description}}

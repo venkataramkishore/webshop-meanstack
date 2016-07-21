@@ -1,0 +1,71 @@
+.container-fluid
+	.well
+		.row
+			.col-xs-6.col-sm-6.col-md-6.col-lg-6
+				form.form-inline.pull-left
+					.form-group
+							.fa.fa-th-list  Orders Details
+		.row
+			.col-xs-6.col-sm-6.col-md-6.col-lg-6
+				table.table.table-condensed.table-striped.table-bordered.table-hover
+					tbody
+						tr
+							td
+								label Ref No
+							td
+								{{ord._id}} 
+						tr
+							td
+								label Email
+							td
+								{{ord.userName}}
+						tr							
+							td
+								label Name
+							td
+								{{ord.firstName+","+ord.lastName}}
+						tr
+							td
+								label Product Title
+							td
+								{{ord.prod_title}}
+						tr
+							td
+								label Price
+							td
+								{{ord.totalPrice}}
+						tr
+							td
+								label Quantity
+							td
+								{{ord.quantity}}
+						tr
+							td
+								label Category
+							td
+								{{ord.category}}
+						tr
+							td
+								label Sub Category
+							td
+								{{ord.subCategory}}
+						tr
+							td
+								label Modified By
+							td
+								{{ord.modifiedBy}}
+						tr
+							td
+								label Status
+							td
+								form.form.form-inline
+									.form-group
+										select.form-control(name="status", placeholder="Status", required, ng-model="ord.status")
+											option(ng-repeat="state in status",ng-selected="{{ord.status==state}}") {{state}}
+					tfoot
+						tr
+							td(colspan="2")
+								form.form-inline.pull-right
+									.form-group
+										a.btn.btn-danger(href="#", ng-click="updateOrder(ord)") Done
+							

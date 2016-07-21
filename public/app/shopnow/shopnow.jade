@@ -1,0 +1,22 @@
+.container-fluid
+	.well
+		.row(ng-show="showShop")
+			.col-xs-6.col-sm-3.col-md-3.col-lg-3
+				H1 Let's shop...
+			.col-xs-6.col-sm-9.col-md-9.col-lg-9
+				form.form-inline.pull-right
+					.form-group
+						input.form-control(ng-model="prodFilter", placeholder="Filter")
+					.form-group
+						a.btn.btn-primary.pull-right(href="#",ng-click="showCartItemsView()", ng-disabled="cartItemsCnt==0")
+							.fa.fa-shopping-cart  {{cartItemsCnt}}
+		.row(ng-show="showShop")
+			.col-xs-6.col-sm-2.col-md-2.col-lg-2
+				div(ng-include="'/partials/shopnow/category-list'")
+			.col-xs-6.col-sm-10.col-md-10.col-lg-10
+				.row
+					div.col-xs-12.col-sm-12.col-md-12.col-lg-12(ng-include="'/partials/shopnow/sub-category-list'")
+				.row
+					div.col-xs-12.col-sm-12.col-md-12.col-lg-12(ng-include="'/partials/shopnow/product-list'")
+		.row(ng-hide="showShop")
+			div.col-xs-12.col-sm-12.col-md-12.col-lg-12(ng-include="'/partials/shopnow/cartItems'")

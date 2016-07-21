@@ -1,0 +1,22 @@
+{
+  "name": "meanstack",
+  "version": "0.0.0",
+  "authors": [
+    "venkataramkishore <venkataramkishore@gmail.com>"
+  ],
+  "description": "Kitty Lovely Technologies",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-resource": "~1.4.6",
+    "angular-route": "~1.4.6",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "font-awsome#~4.4.0",
+    "jade-bootstrap": "*",
+    "jquery": "~2.1.4",
+    "toastr": "~2.1.2"
+  }
+}

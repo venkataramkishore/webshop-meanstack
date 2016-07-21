@@ -1,0 +1,90 @@
+.contaner-fluid
+	.row
+		.col-xs-1.col-sm-1.col-md-1.col-lg-1
+			label.pull-left 
+				.fa.fa-th  Cart List
+		.col-xs-11.col-sm-11.col-md-11.col-lg-11
+			form.form-inline.pull-right
+				.form-group
+					input.form-control(ng-model="cartFilter", placeholder="Filter")
+	.row
+		table.table.table-condensed.table-striped.table-hover.table-bordered
+			thead
+				tr
+					th
+						label Title
+					th
+						label Category
+					th
+						label Sub Category
+					th
+						label Available
+					th
+						label Price
+					th
+						label Quantity
+					th
+						label Total Price
+					th
+						label Remove Item
+			tbody(ng-repeat="item in cartItems | filter:cartFilter")
+				tr
+					td
+						{{item.title}}
+					td
+						{{item.category}}
+					td
+						{{item.subCategory}}
+					td
+						{{item.available}}
+					td
+						{{item.price}}
+					td
+						input(type="number", ng-model="item.reqQuantity", ng-blur="calculateTotalPrice(item)", required)
+					td
+						{{item.totalPrice}}
+					td
+						a.btn.btn-danger.btn-sm(href="#", ng-click="removeFromCart(item)")
+							.fa.fa-trash 
+			tfoot
+				tr
+					td(colspan="6")
+						label.pull-right Total
+					td
+						{{totalOfAllItems}}
+					td
+						&nbsp;
+	.row(ng-hide="isProcessOrder")
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
+			form.form-group
+				.form-group.form-inline.pull-right
+					a.btn.btn-primary(href="#", ng-click="backToShop()") Back 
+					&nbsp;
+					a.btn.btn-success(href="#", ng-click="processMyOrder()", ng-hide="cartItems.length==0") Order
+	.row(ng-show="isProcessOrder")
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
+			ul.list-unstyled
+				li
+					label Name: {{currentUser.firstName+", "+currentUser.lastName}}
+				li
+					label 
+						.fa.fa-home  Address
+				li
+					label  {{currentUser.house+", "+currentUser.street}}
+				li
+					label  {{currentUser.area+", "+currentUser.city}}
+				li
+					label  {{currentUser.state+", "+currentUser.pincode}}
+				li
+					label Please confirm your delivery address
+			.form-group
+				a.btn.btn-danger(href="#", ng-click="backToShop()") Back
+				&nbsp;
+				a.btn.btn-primary(href="#", ng-click="confirmMyOrder()") Confirm
+
+
+
+
+
+
+

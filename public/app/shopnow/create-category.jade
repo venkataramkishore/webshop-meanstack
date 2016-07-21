@@ -1,0 +1,24 @@
+.container
+	.well
+		form.form-horizontal(name="createCatForm")
+			fieldset
+				legend 
+					.fa.fa-th-large  Category
+				.form-group
+					label.col-md-2.control-lable(for="title") 
+						.fa.fa-text-width  Title
+					.col-md-10
+						input.form-control(name="title", type="text", placeholder="Title", required, ng-model="category.title")
+				.form-group
+					label.col-md-2.control-lable(for="desc") 
+						.fa.fa-book  Description
+					.col-md-10
+						textarea.form-control(name="desc", placeholder="Description of Category", required, ng-model="category.description")
+.form-group
+	.col-md-10.col-md-offset-2
+		.pull-right
+			button.btn.btn-primary(ng-click="createCategory()", ng-disabled="createCatForm.$invalid") 
+				.fa.fa-save  Submit
+			| &nbsp;
+			a.btn.btn-default(href="#", ng-click="switchTo('1')") 
+				.fa.fa-ban  Cancel

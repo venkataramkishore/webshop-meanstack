@@ -1,0 +1,36 @@
+nav.navbar.navbar-right(ng-controller="mvNavBarLoginCtrl")
+	form.navbar-form(ng-hide="identity.isAuthenticated()", name="loginForm")
+		ul.nab.navbar-nav.navbar-right
+			li
+				a.btn.btn-small(href="/signup") 
+					.fa.fa-sign-up  Sign Up
+		.form-group
+			input.form-control(placeholder="Username", ng-model="username", required)
+		.form-group
+			input.form-control(type="password", placeholder="password", ng-model="password", required)
+		button.btn.btn-primary(ng-click="signin(username, password)", ng-disabled="loginForm.$invalid") 
+			.fa.fa-sign-in  Sign In
+	ul.nav.nav-bar-nav.navbar-right(ng-show="identity.isAuthenticated()")
+		li.dropdown
+			a.dropdown-toggle(href="", data-toggle="dropdown")
+				| {{identity.currentUser.firstName+", "+identity.currentUser.lastName}}
+				b.caret
+				ul.dropdown-menu
+					li(ng-show="identity.currentUser.isAdmin()")
+						a(href="/admin/users") 
+							.fa.fa-th-list  User Admin
+					li(ng-show="identity.currentUser.isAdmin()")
+						a(href="/admin/setup") 
+							.fa.fa-wrench  Setup data
+					li(ng-show="identity.currentUser.isAdmin()")
+						a(href="/clientorders") 
+							.fa.fa-dashboard  Client Orders
+					li
+						a(href="/profile") 
+							.fa.fa-user  Profile
+					li(ng-hide="identity.currentUser.isAdmin()")
+						a(href="/myorders") 
+							.fa.fa-gift  My Orders
+					li
+						a(href="", ng-click="signout()") 
+							.fa.fa-sign-out  Sign Out

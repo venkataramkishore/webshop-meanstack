@@ -1,0 +1,56 @@
+.container
+	.well
+		form.form-horizontal(name="signForm")
+			fieldset
+				legend New User Information
+				.form-group
+					label.col-md-2.control-lable(for="email") Email
+					.col-md-10
+						input.form-control(name="userName", type="email", placeholder="Email Id", ng-model="email")
+				.form-group
+					label.col-md-2.control-lable(for="Password") Password
+					.col-md-10
+						input.form-control(name="password", type="password", placeholder="Password", ng-model="password")
+				.form-group
+					label.col-md-2.control-lable(for="fname") First Name
+					.col-md-10
+						input.form-control(name="fname", type="text", placeholder="First Name", ng-model="fname")
+				.form-group
+					label.col-md-2.control-lable(for="lname") Last Name
+					.col-md-10
+						input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="lname")
+				.form-group
+					label.col-md-2.control-lable(for="house") 
+						.fa.fa-home	 Address
+					.col-md-10
+						&nbsp;
+				.form-group
+					label.col-md-2.control-lable(for="house") House No
+					.col-md-10
+						input.form-control(name="house", type="text", placeholder="House No", ng-model="house")
+				.form-group
+					label.col-md-2.control-lable(for="street") Street
+					.col-md-10
+						input.form-control(name="text", type="text", placeholder="Street", ng-model="street")
+				.form-group
+					label.col-md-2.control-lable(for="area") Area
+					.col-md-10
+						input.form-control(name="area", type="text", placeholder="Area", ng-model="area")
+				.form-group
+					label.col-md-2.control-lable(for="city") City
+					.col-md-10
+						input.form-control(name="city", type="text", placeholder="City", ng-model="city")
+				.form-group
+					label.col-md-2.control-lable(for="state") State
+					.col-md-10
+						input.form-control(name="state", type="text", placeholder="State", ng-model="state")
+				.form-group
+					label.col-md-2.control-lable(for="pincode") Pincode
+					.col-md-10
+						input.form-control(name="pincode", type="number", placeholder="Pincode", ng-model="pincode")
+.form-group
+	.col-md-10.col-md-offset-2
+		.pull-right
+			button.btn.btn-primary(ng-click="signup()", ng-disabled="signForm.$invalid") Submit
+			| &nbsp;
+			a.btn.btn-default(href="/") Cancel

@@ -1,0 +1,56 @@
+.container
+	.well
+		form.form-horizontal(name="createProductForm")
+			fieldset
+				legend
+					.fa.fa-th-list  Product
+				.form-group
+					label.col-md-2.control-lable(for="title") 
+						.fa.fa-text-width  Title
+					.col-md-10.col-xs-10.col-sm-10.col-lg-10
+						input.form-control(name="title", type="text", placeholder="Title", required, ng-model="product.title")
+				.form-group
+					label.col-md-2.control-lable(for="desc") 
+						.fa.fa-book  Description
+					.col-md-10.col-xs-10.col-sm-10.col-lg-10
+						textarea.form-control(name="desc", placeholder="Description of Category", required, ng-model="product.description")
+				.form-group
+					label.col-md-2.control-lable(for="available")
+						.fa.fa-dollor $ Price
+					.col-md-10.col-xs-10.col-sm-10.col-lg-10
+						input.form-control(name="price", type="number", placeholder="Price of product", required, ng-model="product.price")
+				.form-group
+					label.col-md-2.control-lable(for="imgUrl") 
+						.fa.fa-photo  Image Url
+					.col-md-10.col-xs-10.col-sm-10.col-lg-10
+						input.form-control(name="imgUrl", type="text", placeholder="Image url", required, ng-model="product.imgUrl")
+				.form-group
+					label.col-md-2.control-lable(for="available") 
+						.fa.fa-shopping-cart  Available Stock
+					.col-md-10.col-xs-10.col-sm-10.col-lg-10
+						input.form-control(name="available", type="number", placeholder="Available Stock", required, ng-model="product.available")
+				.form-group
+					label.col-md-2.control-lable(for="sold") 
+						.fa.fa-shopping-cart  Sold Stock
+					.col-md-10.col-xs-10.col-sm-10.col-lg-10
+						input.form-control(name="sold", type="number", placeholder="Sold", required, ng-model="product.sold")			
+				.form-group
+					label.col-md-2.control-lable(for="cattitle") 
+						.fa.fa-th-large  Category
+					.col-md-10.col-xs-10.col-sm-10.col-lg-10
+						select.form-control(name="cattitle", ng-model="product.category")
+							option(ng-repeat="cat in adminCategories") {{cat.title}}
+				.form-group
+					label.col-md-2.control-lable(for="subcattitle") 
+						.fa.fa-th  Sub Category
+					.col-md-10.col-xs-10.col-sm-10.col-lg-10
+						select.form-control(name="subcattitle", ng-model="product.subCategory")
+							option(ng-repeat="subcat in adminSubCategories") {{subcat.title}}
+.form-group
+	.col-md-10.col-md-offset-2
+		.pull-right
+			button.btn.btn-primary(ng-click="createProduct()", ng-disabled="createProductForm.$invalid") 
+				.fa.fa-save  Submit
+			| &nbsp;
+			a.btn.btn-default(href="#", ng-click="switchTo('3')") 
+				.fa.fa-ban  Cancel

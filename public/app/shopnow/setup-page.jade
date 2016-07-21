@@ -1,0 +1,13 @@
+.container-fluid
+	ul.nav.nav-pills
+		li
+			a(href="#", ng-click="switchTo('1')") 
+				.fa.fa-th-large  Categories
+		li
+			a(href="#", ng-click="switchTo('2')") 
+				.fa.fa-th  Sub Categories
+		li
+			a(href="#", ng-click="switchTo('3')") 
+				.fa.fa-th-list  Products
+	.row
+		div(ng-include="pageToLoad")

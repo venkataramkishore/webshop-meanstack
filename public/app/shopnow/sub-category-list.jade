@@ -1,0 +1,3 @@
+ul.nav.nav-pills
+	li.nav-brand(ng-repeat="subCat in subCategories")
+		a.btn.btn-warning.btn-sm(href="#", ng-click="fetchProducts(subCat)") {{subCat.title}}

@@ -1,0 +1,41 @@
+.container-fluid
+	.well
+		.row
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12
+				form.form-inline.pull-right
+					.form-group
+						input.form-control(ng-model="userFilter", placeholder="Filter")
+		.row
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12
+				table.table.table-condensed.table-hover.table.stripped.table.bordered
+					thead
+						tr
+							td
+								label Name
+							td
+								label Login Id
+							td
+								label 
+									.fa.fa-home  Address
+					tbody
+						tr(ng-repeat="user in users | filter:userFilter")
+							td 
+								{{user.firstName + ', ' + user.lastName}}
+							td
+								{{user.userName}}
+							td
+								ul.list-unstyled
+									li
+										label 
+											.fa.fa-home  Address
+									li
+										label  {{user.house+", "+user.street}}
+									li
+										label  {{user.area+", "+user.city}}
+									li
+										label  {{user.state+", "+user.pincode}}
+					tfoot
+						tr
+							td(colspan="3")
+								a.btn.btn-primary(href="/shopnow")
+									.fa.fa-shopping-cart  Back

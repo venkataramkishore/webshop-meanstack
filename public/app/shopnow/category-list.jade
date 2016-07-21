@@ -1,0 +1,5 @@
+ul.nav.nav-pills.nav-stacked
+        li.nav-brand
+            a.btn.btn-info.btn-sm(href="#") Categories
+        li(ng-repeat="category in categories")
+            a.btn.btn-warning.btn-sm(href="#",ng-click="getSubCategories(category)") {{category.title}}

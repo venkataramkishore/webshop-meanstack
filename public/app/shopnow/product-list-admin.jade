@@ -1,0 +1,59 @@
+.container-fluid
+	.row
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
+			form.form-inline.pull-right
+				.form-group
+					input.form-control(ng-model="prodFilter", placeholder="Filter")
+	.row
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12
+			&nbsp;
+	table.table.table-condensed.table-striped.table-bordered.table-hover
+		thead
+			tr
+				td
+					a.btn.btn-info.btn-sm(href="#", ng-click="switchTo('6')" ) 
+						.fa.fa-plus 
+				td
+					label Id 
+				td
+					label Title
+				td
+					label Description
+				td
+					label Price
+				td
+					label Available
+				td
+					label Sold
+				td
+					label Category
+				td
+					label Sub Category
+				td
+					label Product Image
+		tbody(ng-repeat="prod in adminProducts | filter:prodFilter | orderBy:prodOrder")
+			tr
+				td
+					a.btn.btn-warning.btn-sm(href="#", ng-click="updateProd(prod)" ) 
+						.fa.fa-pencil
+					&nbsp;
+					a.btn.btn-danger.btn-sm(href="#", ng-click="deleteProd(prod)" ) 
+						.fa.fa-trash
+				td
+					{{prod._id}} 
+				td
+					{{prod.title}}
+				td
+					{{prod.description}}
+				td
+					{{prod.price}}
+				td
+					{{prod.available}}
+				td
+					{{prod.sold}}
+				td
+					{{prod.category}}
+				td
+					{{prod.subCategory}}
+				td
+					img(src="{{prod.imgUrl}}", width="50", height="50")
